@@ -1,0 +1,6 @@
+[workspace]
+default-members = ["rs-proxmox"]
+members = [
+    "rs-proxmox",
+    "rs-proxmox-client",
+]
