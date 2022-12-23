@@ -11,7 +11,7 @@ enum Format {
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct PostReq {
+pub struct PostRequest {
     // Required
     /// Vm ID for the clone.
     new_id: u32,
@@ -42,18 +42,14 @@ pub struct PostReq {
     target: Option<String>,
 }
 
-pub struct PostResp {}
+pub struct PostResponse {}
 
-pub struct Clone {}
-
-impl Clone {
-    pub async fn post(node: &str, vmid: &str, payload: PostReq) -> PostResp {
-        let c = Builder::new().build()?;
-        let response = c.request(
-            Method::POST,
-            &format!(API_PATH_FORMAT, &node, &vmid),
-            payload
-        ).await?.text().await?;
-        PostResp{}
-    }
+pub async fn post(node: &str, vmid: &str, payload: PostReq) -> PostResp {
+    let c = Builder::new().build()?;
+    let response = c.request(
+        Method::POST,
+        &format!(API_PATH_FORMAT, &node, &vmid),
+        payload
+    ).await?.text().await?;
+    PostResp{}
 }

@@ -4,5 +4,4 @@ mod reset;
 mod resume;
 mod shutdown;
 mod start;
-mod start;
 mod suspend;
